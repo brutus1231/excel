@@ -17,15 +17,13 @@ public class ExcelReader {
         try (InputStream inp = new FileInputStream(FILE_PATH)) {
             Workbook wb = WorkbookFactory.create(inp);
             Sheet sheet = wb.getSheetAt(0);
-            for (int i = 0; i < sheet.getLastRowNum(); i++) {
+            for (int i = 1; i < sheet.getLastRowNum(); i++) {
 
                 Row row = sheet.getRow(i);
                 BigDecimal income = getCellValue(row, 1);
                 BigDecimal outcome = getCellValue(row, 3);
-
             }
         }
-
     }
 
     private BigDecimal getCellValue(Row row, int rowNumber) {
